@@ -1,0 +1,81 @@
+from django.urls import path
+
+from hr import views
+
+
+urlpatterns=[
+    path("", views.login_view, name="login"),
+    path("dashboard/", views.dashboard, name="dashboard"),
+    path("logout/", views.logout_view, name="logout"),
+    # path("viewemployees/", views.viewemployees, name="viewemployees"),
+    path("employee/",views.employee_list,name='employee_list'),
+    path("employee/add/",views.employee_create,name='employee_create'),
+
+    path("employees/<int:id>/edit/", views.employee_update, name="employee_update"),
+path("employees/<int:id>/delete/", views.employee_delete, name="employee_delete"),
+    path("leave-aprroval/", views.leave_approve, name='leave_approve'),
+    path("leave/<int:id>/action/", views.leave_action, name='leave_action'),
+# Department URLs
+
+path(
+    "departments/",
+    views.department_list,
+    name="department_list"
+),
+
+path(
+    "departments/add/",
+    views.department_create,
+    name="department_create"
+),
+
+path(
+    "departments/<int:id>/",
+    views.department_detail,
+    name="department_detail"
+),
+
+path(
+    "departments/<int:id>/edit/",
+    views.department_update,
+    name="department_update"
+),
+
+path(
+    "departments/<int:id>/delete/",
+    views.department_delete,
+    name="department_delete"
+),
+
+# Designation URLs
+
+path(
+    "designations/",
+    views.designation_list,
+    name="designation_list"
+),
+
+path(
+    "designations/add/",
+    views.designation_create,
+    name="designation_create"
+),
+
+path(
+    "designations/<int:id>/",
+    views.designation_detail,
+    name="designation_detail"
+),
+
+path(
+    "designations/<int:id>/edit/",
+    views.designation_update,
+    name="designation_update"
+),
+
+path(
+    "designations/<int:id>/delete/",
+    views.designation_delete,
+    name="designation_delete"
+),
+]
